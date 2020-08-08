@@ -32,14 +32,25 @@ Dependencies:
  - autoconf  
  - automake  
  - texinfo  
+ - libusb-1.0-0-dev
 
 ```bash  
 ./bootstrap  
-./configure  
+./configure --enable-stlink  
 make  
 sudo make install  
 ```  
 location of openocd scripts: `/usr/share/openocd/scripts/`  
+
+#### Settings for flashing STM MCUs
+
+```makefile  
+flash:
+	openocd -f interface/stlink.cfg -f target/stm32g0x.cfg -c "program build/$(TARGET).bin verify reset exit 0x08000000"
+
+reset:
+	openocd -f interface/stlink.cfg -f target/stm32g0x.cfg -c "reset run"
+```
 
 # arm-none-eabi-gdb --with-python support  
 Run script below for installation of GDB for ARM with python support  
