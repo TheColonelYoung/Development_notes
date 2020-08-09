@@ -15,7 +15,7 @@ Last version of OpenOCD must be installed for support of L and G family of STM32
             "name": "GDB + OpenOCD",  
             "device": "STM32L432CE",  
             "configFiles": [  
-                "interface/stlink-v2-1.cfg",  
+                "interface/stlink.cfg",  
                 "target/stm32l4x.cfg"  
             ]  
         }  
